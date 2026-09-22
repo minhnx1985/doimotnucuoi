@@ -66,7 +66,7 @@ Subtitle:
 
 Suggested opening copy:
 
-> Với nhiều gia đình, một nụ cười hay một thay đổi rất nhỏ của con có thể là điều bình thường. Với người bà trong cuốn sách này, đôi khi đó lại là kết quả của rất nhiều ngày chờ đợi, thử nghiệm và kiên trì.
+> Nhật Minh từng biết nói, biết cười như bao đứa trẻ khác. Khi những thay đổi bắt đầu xuất hiện, bà nội Nguyễn Thị Quỳnh Anh cùng gia đình bước vào quãng thời gian hơn mười năm tìm bác sĩ, tìm trường và chờ đợi những chuyển biến rất nhỏ.
 
 Primary CTA:
 **Mua sách**
@@ -95,15 +95,13 @@ Heading:
 Purpose:
 make the reader recognize the emotional stakes without exploiting fear.
 
-Use three concrete questions already present in supplied jacket copy, paraphrased naturally:
+Use at most one concrete question:
 
 - Điều gì đang xảy ra khi một đứa trẻ từng biết nói, biết cười dần khép mình?
-- Gia đình bắt đầu từ đâu khi không có câu trả lời chắc chắn?
-- Làm sao để tiếp tục đồng hành khi mỗi bước tiến có thể rất nhỏ?
 
 Then establish:
 
-> Đây không phải câu chuyện về một phép màu tức thì. Đó là ký ức của hơn mười năm một người bà cùng cháu đi qua chẩn đoán, bệnh viện, trường học, những lần thử và sai, cùng những người đã mở thêm một cánh cửa.
+> Cuốn sách ghi lại hơn mười năm bà Quỳnh Anh cùng Nhật Minh đi qua chẩn đoán, bệnh viện, trường học, những lần thử rồi phải làm lại và những người đã giúp đỡ gia đình.
 
 Do NOT write:
 - “chữa khỏi tự kỷ”;
@@ -196,7 +194,7 @@ Copy direction:
 
 Then:
 
-> Giá trị của câu chuyện nằm ở điều nó ghi lại rất cụ thể: một gia đình đã quan sát, thử, sai, học lại cách kiên nhẫn và tìm kiếm những môi trường phù hợp như thế nào.
+> Tác giả ghi lại những gì gia đình mình đã quan sát, đã thử, những lần sai và làm lại, cùng quá trình tìm một môi trường phù hợp hơn cho Nhật Minh.
 
 This is a trust-building section, not a legal disclaimer wall.
 
@@ -224,7 +222,7 @@ Bio direction, approximately 120–170 words:
 - Gold Decoration from the President of Austria, as stated in supplied jacket copy;
 - then pivot explicitly:
 
-> Nhưng trong cuốn sách này, bà không viết với tư cách một chuyên gia y khoa. Bà viết với tư cách một người bà đã đi cùng cháu qua hơn mười năm của một hành trình rất riêng.
+> Trong cuốn sách này, câu chuyện được kể từ vị trí gần gũi nhất của bà: người bà đã trực tiếp ở bên Nhật Minh trong hơn mười năm.
 
 This pivot is important.
 
@@ -253,7 +251,7 @@ Heading:
 
 Copy:
 
-> Bản đọc thử bắt đầu từ lời giới thiệu, lời tựa và những trang đầu của chương “Khi thế giới bỗng trở nên im lặng” — trước khi những dấu hiệu nhỏ bắt đầu làm cuộc sống của cả gia đình rẽ sang một hướng khác.
+> Bản đọc thử gồm lời giới thiệu, lời tựa và những trang đầu của chương “Khi thế giới bỗng trở nên im lặng”.
 
 Implementation:
 - local PDF;
@@ -314,7 +312,7 @@ Suggested heading:
 # **Đôi khi, điều ở lại chỉ là một nụ cười**
 
 Body:
-> Một câu chuyện có thật về kiên nhẫn, những vòng tay đã cùng mở cửa, và hơn mười năm một người bà học cách đồng hành cùng cháu theo con đường của riêng cháu.
+> Hơn mười năm bên Nhật Minh, Nguyễn Thị Quỳnh Anh ghi lại những lần cả gia đình hoang mang, tìm kiếm, thử lại và vui mừng trước những thay đổi có khi rất nhỏ.
 
 CTA:
 **Mua sách**
