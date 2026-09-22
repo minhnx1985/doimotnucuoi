@@ -1,0 +1,16 @@
+{
+  "name": "doi-mot-nu-cuoi-cline-pack",
+  "agent": "Cline",
+  "mode": "autonomous-one-shot",
+  "book": "Đợi một nụ cười",
+  "subtitle": "Hành trình của một người bà đồng hành cùng cháu tự kỷ",
+  "author": "Nguyễn Thị Quỳnh Anh",
+  "primary_goal": "purchase_click",
+  "assets_bundled": [
+    "cover.jpg",
+    "logo-nhanam.jpg",
+    "read-sample.pdf",
+    "back-cover-copy.docx",
+    "author-portrait.jpg"
+  ]
+}
