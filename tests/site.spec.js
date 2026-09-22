@@ -28,8 +28,10 @@ test('purchase links are consistent and sample PDF is lazy', async ({ page }) =>
   await expect(links).toHaveCount(3)
   for (let index = 0; index < 3; index += 1) {
     await expect(links.nth(index)).toHaveAttribute('href', 'https://nhanam.vn')
-    await expect(links.nth(index)).toHaveText('Tìm mua tại Nhã Nam')
   }
+  await expect(page.locator('.hero-purchase')).toHaveText('ĐẶT MUA SÁCH')
+  await expect(page.locator('.site-header .purchase-link')).toHaveText('Tìm mua tại Nhã Nam')
+  await expect(page.locator('.final-cta .purchase-link')).toHaveText('Tìm mua tại Nhã Nam')
   await expect(page.locator('[data-pdf-frame]')).not.toHaveAttribute('src', /.+/)
   await page.locator('[data-open-reader]').click()
   await expect(page.locator('.reader')).toBeVisible()

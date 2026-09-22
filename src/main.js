@@ -3,7 +3,7 @@ import { siteConfig } from './config.js'
 
 document.querySelectorAll('.purchase-link').forEach((link) => {
   link.href = siteConfig.purchaseUrl
-  link.textContent = siteConfig.purchaseLabel
+  if (!link.classList.contains('hero-purchase')) link.textContent = siteConfig.purchaseLabel
   if (!link.classList.contains('site-header')) {
     link.target = '_blank'
     link.rel = 'noopener'
