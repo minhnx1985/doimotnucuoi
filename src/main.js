@@ -27,6 +27,30 @@ reader.addEventListener('click', (event) => {
   if (event.target === reader) reader.close()
 })
 
+const galleryViewer = document.querySelector('.gallery-viewer')
+const galleryImage = document.querySelector('[data-gallery-viewer-image]')
+const galleryCaption = document.querySelector('[data-gallery-viewer-caption]')
+let galleryTrigger
+
+document.querySelectorAll('[data-gallery-image]').forEach((button) => {
+  button.addEventListener('click', () => {
+    galleryTrigger = button
+    galleryImage.src = button.dataset.galleryImage
+    galleryImage.alt = button.dataset.galleryCaption
+    galleryCaption.textContent = button.dataset.galleryCaption
+    galleryViewer.showModal()
+  })
+})
+document.querySelector('[data-close-gallery]').addEventListener('click', () => galleryViewer.close())
+galleryViewer.addEventListener('click', (event) => {
+  const bounds = galleryViewer.getBoundingClientRect()
+  if (event.target === galleryViewer && (
+    event.clientX < bounds.left || event.clientX > bounds.right ||
+    event.clientY < bounds.top || event.clientY > bounds.bottom
+  )) galleryViewer.close()
+})
+galleryViewer.addEventListener('close', () => galleryTrigger?.focus({ preventScroll: true }))
+
 const observer = new IntersectionObserver(
   (entries) => entries.forEach((entry) => entry.isIntersecting && entry.target.classList.add('is-visible')),
   { threshold: 0.12 },

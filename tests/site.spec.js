@@ -77,8 +77,63 @@ test('purchase links are consistent and sample PDF is lazy', async ({ page }) =>
   await expect(page.locator('.reader')).not.toBeVisible()
 })
 
+test('gallery and press links are complete and gallery restores focus', async ({ page }) => {
+  await page.goto('/')
+  const galleryItems = page.locator('[data-gallery-image]')
+  await expect(galleryItems).toHaveCount(15)
+  await expect(page.locator('.press__item')).toHaveCount(4)
+  await expect(page.locator('.gallery__item img')).toHaveCount(15)
+  for (const image of await page.locator('.gallery__item img').all()) {
+    await image.scrollIntoViewIfNeeded()
+    await expect.poll(() => image.evaluate((element) => element.complete && element.naturalWidth > 0)).toBeTruthy()
+    expect(await image.evaluate((element) => Math.max(element.naturalWidth, element.naturalHeight))).toBeLessThanOrEqual(1800)
+  }
+  for (const link of await page.locator('.press__item').all()) {
+    await expect(link).toHaveAttribute('href', /^https:\/\//)
+    await expect(link).toHaveAttribute('target', '_blank')
+    await expect(link).toHaveAttribute('rel', 'noopener')
+  }
+
+  await galleryItems.nth(3).click()
+  await expect(page.locator('.gallery-viewer')).toBeVisible()
+  await expect(page.locator('[data-gallery-viewer-image]')).toHaveAttribute('src', /C4R05847\.jpg/)
+  await expect(page.locator('[data-gallery-viewer-caption]')).toHaveText('Những cuộc trò chuyện bên cuốn sách')
+  await page.keyboard.press('Escape')
+  await expect(page.locator('.gallery-viewer')).not.toBeVisible()
+  await expect(galleryItems.nth(3)).toBeFocused()
+  await galleryItems.last().click()
+  await expect(page.locator('[data-gallery-viewer-image]')).toHaveAttribute('src', /C4R06168\.jpg/)
+  await page.locator('[data-close-gallery]').click()
+  await expect(galleryItems.last()).toBeFocused()
+})
+
+for (const width of [390, 1440]) {
+  test(`gallery and press presentation at ${width}`, async ({ page }) => {
+    await page.setViewportSize({ width, height: 1000 })
+    await page.emulateMedia({ reducedMotion: 'reduce' })
+    await page.goto('/')
+    await expect(page.locator('.site-header nav')).toBeVisible()
+    for (const image of await page.locator('.gallery__item img').all()) {
+      await image.scrollIntoViewIfNeeded()
+      await image.evaluate((element) => element.decode())
+    }
+    for (const selector of ['.gallery', '.press']) {
+      await page.locator(selector).scrollIntoViewIfNeeded()
+      await page.locator(selector).screenshot({ path: `qa/${selector.slice(1)}-${width}.png` })
+    }
+    await page.locator('[data-gallery-image]').first().click()
+    await expect(page.locator('.gallery-viewer')).toBeVisible()
+    await page.locator('[data-gallery-viewer-image]').evaluate((element) => element.decode())
+    await page.locator('.gallery-viewer').screenshot({ path: `qa/gallery-viewer-${width}.png` })
+    await page.mouse.click(1, 1)
+    await expect(page.locator('.gallery-viewer')).not.toBeVisible()
+    expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBeFalsy()
+  })
+}
+
 test('keyboard focus reaches primary action', async ({ page }) => {
   await page.goto('/')
+  await page.keyboard.press('Tab')
   await page.keyboard.press('Tab')
   await page.keyboard.press('Tab')
   await page.keyboard.press('Tab')
