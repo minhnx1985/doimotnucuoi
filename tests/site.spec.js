@@ -81,7 +81,8 @@ test('gallery and press links are complete and gallery restores focus', async ({
   await page.goto('/')
   const galleryItems = page.locator('[data-gallery-image]')
   await expect(galleryItems).toHaveCount(15)
-  await expect(page.locator('.press__item')).toHaveCount(4)
+  await expect(page.locator('.press__item')).toHaveCount(5)
+  await expect(page.locator('#press-title')).toHaveText('Báo chí viết về cuốn sách và sự kiện')
   await expect(page.locator('.gallery__item img')).toHaveCount(15)
   for (const image of await page.locator('.gallery__item img').all()) {
     await image.scrollIntoViewIfNeeded()
@@ -93,6 +94,8 @@ test('gallery and press links are complete and gallery restores focus', async ({
     await expect(link).toHaveAttribute('target', '_blank')
     await expect(link).toHaveAttribute('rel', 'noopener')
   }
+  await expect(page.locator('.press__item').last()).toHaveAttribute('href', /saostar\.vn\/sac-mau-cuoc-song\/tinh-yeu-cua-ba/)
+  await expect(page.locator('.press__item').last()).toContainText('Tình yêu của bà trên hành trình lớn lên cùng cháu trai mắc bệnh tự kỷ')
 
   await galleryItems.nth(3).click()
   await expect(page.locator('.gallery-viewer')).toBeVisible()
